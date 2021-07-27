@@ -1,0 +1,63 @@
+﻿<Window x:Class="Guestionary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Guestionary" 
+        xmlns:col="clr-namespace:System.Collections;assembly=System.Runtime"
+        mc:Ignorable="d"     
+        Title="MainWindow" Height="850" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary Source="style.xaml"/>
+    </Window.Resources>
+    <TabControl >
+        <TabItem Header="Анкета" 
+                 Height="30" Width="200" FontSize="20">
+            <ListBox Name="Data_entry" Background="Aquamarine">
+                <TextBlock Text="Заполните анкету" Height="50" FontSize="30"/>
+                <TextBlock Text="Фамилия" Height="50" FontSize="30"/>
+                <TextBox x:Name="Surname_NEW" Height="50" Width="800" FontSize="30"/>
+                <TextBlock Text="Имя" Height="50" FontSize="30"/>
+                <TextBox x:Name="Firstname_NEW" Height="50" Width="800" FontSize="30"/>
+                <TextBlock Text="Телефон" Height="50" FontSize="30"/>
+                <TextBox x:Name="Phone_NEW" Height="50" Width="800" FontSize="30"/>
+                <TextBlock Text="E-mail" Height="50" FontSize="30"/>
+                <TextBox x:Name="Mail_NEW" Height="50" Width="800" FontSize="30"/>
+                <TextBlock Height="50" />
+                <Button x:Name="Add" Content="Добавить пользователя в базу данных" 
+                        Margin="350,0,0,0"
+                        Style="{DynamicResource style_Button}" Click="Add_Click">                    
+                </Button>
+                <Button x:Name="Save" Content="Сохранить изменения" 
+                        Margin="350,0,0,0"
+                        Style="{DynamicResource style_Button}" Click="Save_Click">
+                </Button>
+                <Button x:Name="Delete" Content="Удалить пользователя"
+                        Margin="350,0,0,0" Background="LightCoral"
+                        Style="{DynamicResource style_Button}" Click="Delete_Click">
+                </Button>
+                <Button x:Name="Clear" Content="Очистить форму"
+                        Margin="350,0,0,0" 
+                        Style="{DynamicResource style_Button}" Click="Clear_Click">
+                </Button>
+            </ListBox>            
+        </TabItem>
+        <TabItem Header="Пользователи"
+                 Height="30" Width="200" FontSize="20">
+            <ListView Name="UsersList" SelectionChanged="UsersList_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Number}" Width="50">№</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Surname}" Width="300">Фамилия</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Firstname}" Width="220">Имя</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Phone}" Width="180">Телефон</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Mail}" Width="250">E-mail</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+                
+            </ListView>
+                         
+
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,11 @@
+﻿CREATE TABLE table_users
+(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
+    surname TEXT NOT NULL ,
+    firstname TEXT NOT NULL ,
+    phone TEXT NOT NULL ,
+    mail TEXT NOT NULL
+);
+
+INSERT INTO table_users (id, surname, firstname, phone, mail) VALUES (1, 'Иванов', 'Иван', '123456', 'еукпр');
+INSERT INTO table_users (id, surname, firstname, phone, mail) VALUES (2, 'Аннушкова', 'Анна', '95894743', 'еачч');
